@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Caax" parallel="tests">
+
+    <listeners>
+        <listener class-name="Listners.TestNGListner" />
+    </listeners>
+
+
+    <test name="Client Demo Test">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestCase.LoginTest"></class>
+        </classes>
+    </test>
+
+</suite>
