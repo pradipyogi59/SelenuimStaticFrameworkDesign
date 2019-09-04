@@ -4,6 +4,7 @@ import BaseClass.Base;
 import Pages.Bills;
 import Pages.Dashboard;
 import Pages.LoginPage;
+import org.apache.logging.log4j.Level;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -21,6 +22,7 @@ public class LoginTest extends Base {
 
         initialization();
         loginPage=new LoginPage();
+        Base.logger.log(Level.INFO,"Setup Done");
     }
 
 

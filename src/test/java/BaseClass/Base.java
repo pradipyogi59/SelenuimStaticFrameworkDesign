@@ -2,6 +2,9 @@ package BaseClass;
 
 import Utilities.Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,6 +22,7 @@ public class Base {
     public static FileInputStream fis;
     public static Properties prop;
     public static WebDriverWait wait;
+    public static Logger logger;
 
 
     public Base() {
@@ -34,6 +38,7 @@ public class Base {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        logger = LogManager.getLogger();
     }
 
     public void initialization() {
@@ -44,6 +49,7 @@ public class Base {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.get(prop.getProperty("url"));
+        logger.log(Level.INFO,"Navigating site");
         wait = new WebDriverWait(driver, 5);
         Utils.HandleWindows();
 
